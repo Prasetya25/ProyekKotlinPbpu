@@ -1,4 +1,6 @@
-# ProyekKotlinPbpu
+# Proyek Kotlin Pbpu
+
+## Github User
 
 ### Dosen Pengampu: Andri Santoso, S.kom., M.Sc.,
 
