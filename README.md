@@ -1,7 +1,7 @@
 # Proyek Kotlin Pbpu
 
 ## Github User
-Project ini bertujuan untuk membuat dependency yang bisa digunakan oleh pada platform android menggunakan bahasa Kotlin untuk mendapatkan list user dari github melalui API github
+Project ini bertujuan untuk membuat dependency yang bisa digunakan oleh platform android menggunakan bahasa Kotlin untuk mendapatkan list user dari github melalui API Github
 
 ### Dosen Pengampu: Andri Santoso, S.kom., M.Sc.,
 
