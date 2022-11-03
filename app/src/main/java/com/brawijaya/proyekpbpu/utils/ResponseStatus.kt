@@ -1,4 +1,4 @@
-package com.example.githubuserapp.utils
+package com.brawijaya.proyekpbpu.utils
 
 enum class ResponseStatus(val stat : Int) {
     BAD_REQUEST(401),

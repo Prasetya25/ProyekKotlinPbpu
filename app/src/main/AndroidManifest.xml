@@ -14,6 +14,10 @@
         android:theme="@style/Theme.ProyekPBPU"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
