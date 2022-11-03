@@ -2,7 +2,7 @@ package com.brawijaya.proyekpbpu.data.local.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.githubuserapp.data.local.entity.UserEntity
+import com.brawijaya.proyekpbpu.data.local.entity.UserEntity
 
 @Dao
 interface UserDao {
