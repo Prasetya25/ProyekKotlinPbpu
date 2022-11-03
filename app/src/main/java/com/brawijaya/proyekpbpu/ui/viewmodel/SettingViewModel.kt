@@ -1,4 +1,4 @@
-package com.example.githubuserapp.ui.viewmodel
+package com.brawijaya.proyekpbpu.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
