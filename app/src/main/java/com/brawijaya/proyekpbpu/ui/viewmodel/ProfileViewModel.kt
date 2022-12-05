@@ -4,13 +4,14 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.brawijaya.proyekpbpu.BuildConfig
 import com.brawijaya.proyekpbpu.data.UserRepository
 import com.brawijaya.proyekpbpu.data.local.entity.UserEntity
 import com.brawijaya.proyekpbpu.data.local.room.UserDao
 import com.brawijaya.proyekpbpu.data.local.room.UserDatabase
-import com.brawijaya.proyekpbpu.data.remote.response.DetailUserResponse
-import com.brawijaya.proyekpbpu.data.remote.retrofit.ApiConfig
 import com.brawijaya.proyekpbpu.utils.ResponseStatus
+import com.example.githubusertest.response.DetailUserResponse
+import com.example.testlibrarygit.retrofit.ApiGithubConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +32,7 @@ class ProfileViewModel(application: Application)  : AndroidViewModel(application
 
     fun getDetail(query: String) {
         isLoading.postValue(true)
-        val client = ApiConfig.getApiService().getDetailUser(query)
+        val client = ApiGithubConfig.getApiService().getDetailUser(BuildConfig.API_TOKEN, query)
         client.enqueue(object : Callback<DetailUserResponse> {
             override fun onResponse(
                 call: Call<DetailUserResponse>,

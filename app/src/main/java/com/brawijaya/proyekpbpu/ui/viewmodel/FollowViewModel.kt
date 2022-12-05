@@ -3,10 +3,11 @@ package com.brawijaya.proyekpbpu.ui.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.brawijaya.proyekpbpu.BuildConfig
 import com.brawijaya.proyekpbpu.data.User
-import com.brawijaya.proyekpbpu.data.remote.response.UserResponse
-import com.brawijaya.proyekpbpu.data.remote.retrofit.ApiConfig
 import com.brawijaya.proyekpbpu.utils.ResponseStatus
+import com.example.githubusertest.response.UserResponse
+import com.example.testlibrarygit.retrofit.ApiGithubConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,9 +31,9 @@ class FollowViewModel : ViewModel() {
     fun getListUser(query: String, tab: Int) {
         isLoading.postValue(true)
         val client = if (tab == 1){
-            ApiConfig.getApiService().getFollowing(query)
+            ApiGithubConfig.getApiService().getFollowing(BuildConfig.API_TOKEN, query)
         } else {
-            ApiConfig.getApiService().getFollowers(query)
+            ApiGithubConfig.getApiService().getFollowers(BuildConfig.API_TOKEN, query)
         }
         client.enqueue(object : Callback<List<UserResponse>> {
             override fun onResponse(

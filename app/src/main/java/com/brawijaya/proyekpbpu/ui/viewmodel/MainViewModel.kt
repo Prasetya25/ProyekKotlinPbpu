@@ -3,11 +3,11 @@ package com.brawijaya.proyekpbpu.ui.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.brawijaya.proyekpbpu.BuildConfig
 import com.brawijaya.proyekpbpu.data.User
-import com.brawijaya.proyekpbpu.data.remote.response.FindUserResponse
-import com.brawijaya.proyekpbpu.data.remote.response.UserResponse
-import com.brawijaya.proyekpbpu.data.remote.retrofit.ApiConfig
 import com.brawijaya.proyekpbpu.utils.ResponseStatus
+import com.example.githubusertest.response.UserResponse
+import com.example.testlibrarygit.retrofit.ApiGithubConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,9 +29,8 @@ class MainViewModel : ViewModel() {
 
     fun getListUser(query: String = "") {
         isLoading.postValue(true)
-
         if(query.isEmpty()) {
-            val client = ApiConfig.getApiService().getUsers()
+            val client = ApiGithubConfig.getApiService().getUsers(BuildConfig.API_TOKEN)
             client.enqueue(object : Callback<List<UserResponse>> {
                 override fun onResponse(
                     call: Call<List<UserResponse>>,
@@ -55,37 +54,6 @@ class MainViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<List<UserResponse>>, t: Throwable) {
-                    isLoading.postValue(false)
-                    stringError.postValue(t.message)
-                    Log.e(TAG, t.message.toString())
-                    t.printStackTrace()
-                }
-            })
-        } else {
-            val client = ApiConfig.getApiService().findUsers(query)
-            client.enqueue(object : Callback<FindUserResponse> {
-                override fun onResponse(
-                    call: Call<FindUserResponse>,
-                    response: Response<FindUserResponse>
-                ) {
-                    isLoading.postValue(false)
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        if (responseBody != null) {
-                            setListUser(responseBody.items)
-                        }
-                    } else {
-                        val errorMessage = when (val statusCode = response.code()) {
-                            ResponseStatus.BAD_REQUEST.stat -> "$statusCode : Bad Request"
-                            ResponseStatus.FORBIDDEN.stat -> "$statusCode : Forbidden"
-                            ResponseStatus.NOT_FOUND.stat -> "$statusCode : Not Found"
-                            else -> "$statusCode"
-                        }
-                        Log.e(TAG, errorMessage)
-                    }
-                }
-
-                override fun onFailure(call: Call<FindUserResponse>, t: Throwable) {
                     isLoading.postValue(false)
                     stringError.postValue(t.message)
                     Log.e(TAG, t.message.toString())
