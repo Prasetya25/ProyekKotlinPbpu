@@ -14,16 +14,3 @@ Project ini bertujuan untuk membuat dependency yang bisa digunakan oleh platform
 | Hendika Fashobiqul Galang F. | 195150400111024 |
 
 ### Client User
-
-```gradle
-repositories {
-  google()
-  mavenCentral()
-}
-
-dependencies {
-  implementation 'com.github.bumptech.glide:glide:4.14.2'
-  annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
-}
-```
-
