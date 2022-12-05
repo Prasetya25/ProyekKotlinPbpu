@@ -13,4 +13,4 @@ Project ini bertujuan untuk membuat dependency yang bisa digunakan oleh platform
 | Ronaldo Simatupang | 195150400111015 |
 | Hendika Fashobiqul Galang F. | 195150400111024 |
 
-### *Under Development*
+### Client User
